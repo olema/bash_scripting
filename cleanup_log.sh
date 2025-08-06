@@ -25,3 +25,18 @@ else
 fi
 
 printf "Lines = %s\n" "$lines"
+
+cd $LOG_DIR
+
+if [ `pwd` != "$LOG_DIR" ]
+then
+	printf "Can't change to $LOG_DIR.\n"
+	exit $E_XCD
+fi
+
+tail -n $lines messages > mesg.temp
+mv mesg.temp messages
+
+printf "messages cleaned up\n"
+
+exit 0
