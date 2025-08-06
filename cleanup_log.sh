@@ -15,3 +15,13 @@ then
 	printf "And go off, sucker! ;)))\n"
 	exit $E_NOTROOT
 fi
+
+if [ -n "$1" ]
+# Test whether command-line argument is present (non-empty).
+then
+	lines=$1
+else
+	lines=$LINES # Default, if not specified on command-line.
+fi
+
+printf "Lines = %s\n" "$lines"
